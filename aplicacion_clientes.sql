@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-02-2018 a las 20:45:33
+-- Tiempo de generación: 22-02-2018 a las 20:47:51
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -36,13 +36,6 @@ CREATE TABLE `customer` (
   `second_surname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `customer`
---
-
-INSERT INTO `customer` (`dni`, `phone_number`, `name`, `surname`, `second_surname`) VALUES
-('12345678A', 612345678, 'Alberto', 'Perez', 'García');
-
 -- --------------------------------------------------------
 
 --
@@ -54,13 +47,6 @@ CREATE TABLE `user` (
   `password` varchar(500) NOT NULL,
   `dni_user` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `user`
---
-
-INSERT INTO `user` (`email`, `password`, `dni_user`) VALUES
-('inventado@gamil.com', '1234', '12345678A');
 
 --
 -- Índices para tablas volcadas
