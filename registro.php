@@ -5,25 +5,28 @@
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
    }
 
-   $nombre = $_POST['nombre'];
-   $apellido1 = $_POST['apellido1'];
-   $apellido2 = $_POST['apellido2'];
-   $dni = $_POST['dni'];
-   $telefono = $_POST['telefono'];
-   $email = $_POST['email'];
-   $pass = $_POST['pass'];
+   $nombre = $_GET['nombre'];
+   $apellido1 = $_GET['apellido1'];
+   $apellido2 = $_GET['apellido2'];
+   $dni = $_GET['dni'];
+   $telefono = $_GET['telefono'];
+   $email = $_GET['email'];
+   $pass = $_GET['pass'];
    
    
-   
-   $result = mysqli_query($con,"SELECT * FROM user where email='$email'");
-	  if($result){
-	  echo "Usuario ya registrado ";}
+   $response = array();
+   $result = mysqli_query($con,"SELECT * FROM user WHERE email='$email'");
+   $nr=mysqli_num_rows($result);
+	  if($nr=='1'){
+		  $response["success"] = 1;
+	  echo json_encode($response);}
 	  else{
-		  mysqli_query($con,"INSERT INTO customer (dni, phone_number, name, surname, second_surname) values ('$dni',$telefono,'$nombre',
+		  $response["success"] = 0;
+		  mysqli_query($con,"INSERT INTO customer (dni, phone_number, name, surname, second_surname) VALUES ('$dni',$telefono,'$nombre',
 		  '$apellido1','$apellido2')");
-		  mysqli_query($con,"INSERT INTO user (email,password,dni_user) values ('$email','$password','$dni')");
+		  mysqli_query($con,"INSERT INTO user (email,password,dni_user) VALUES ('$email','$pass','$dni')");
 		  
-		  echo "usuario registrado con exito";
+		  echo json_encode($response);
 	  }
 	
    mysqli_close($con);

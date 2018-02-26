@@ -9,8 +9,15 @@
    $password = $_GET['password'];
    $result = mysqli_query($con,"SELECT * FROM user where email='$username' 
       and password='$password'");
-	  if($result) echo "logueado correctamete"
-	  else echo "va a ser que no"
+	  $nr=mysqli_num_rows($result);
+	  $response = array();
+	  if($nr=='1'){
+		  $response["success"] = 1;
+		  echo json_encode($response);
+	  }else{
+		  $response["success"] = 0;
+		  echo json_encode($response);
+	  }
 	  
 	  
    

@@ -15,7 +15,6 @@
 		
 	}
 	header('Content-Type:Application/json');
-	
 	echo json_encode($array);
    
    mysqli_free_result($result);
