@@ -22,7 +22,7 @@
 	  }
 
 	  else{
-	 	 $result2 = mysqli_query($con,"SELECT * FROM customer WHERE dni='$dni'");
+	 	  $result2 = mysqli_query($con,"SELECT * FROM customer WHERE dni='$dni'");
 		  $nr=mysqli_num_rows($result2);
 		  if($nr!='1'){
 			    mysqli_query($con,"INSERT INTO customer (dni, name, surname, second_surname) VALUES ('$dni','$nombre',
