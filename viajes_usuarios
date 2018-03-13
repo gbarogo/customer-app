@@ -1,0 +1,17 @@
+<?php
+   $con=mysqli_connect("localhost:3306","root","","aplicacion_clientes");
+   if (mysqli_connect_errno($con)) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+   }
+   
+   $email = $_GET['email_viaje']
+   $id_viaje = $_GET['id_viaje']
+   
+   $response = array();
+   $result = mysqli_query($con, "SELECT * FROM cliente_viajes WHERE email_viaje='$email_viaje'");
+   $response["success"] =0
+   
+   
+   $result2 = mysqli_query($con, "SELECT COUNT (*) from cliente_viajes WHERE is_viaje='$id_viaje'");
+   
+ 
