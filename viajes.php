@@ -9,7 +9,7 @@
    
    $response = array();
    $result = mysqli_query($con,"INSERT INTO cliente_viajes (email_viaje, id_viaje) VALUES ('$email_viaje', '$id_viaje');
-	 $response["success"] = 1
-	  }
-   
-   
+   $response["success"] = 1
+	
+     mysqli_close($con);
+?>
